@@ -24,7 +24,7 @@ const schemas = {
      * 
      */
 export const useReactModals = (options) => {
-    const { append = true, usevalidation=true } = options;
+    const { append = true, useValidation=true } = options;
 
     const createStoredModal = (modalProperties) => {
         const {
@@ -57,7 +57,7 @@ export const useReactModals = (options) => {
         if (!type) {
             throw new Error('Modal type is required');
         };
-        const errors = usevalidation? validateModal(modalProperties, schema[type]) : [];
+        const errors = useValidation? validateModal(modalProperties, schema[type]) : [];
         if (errors.length > 0) {
             errors.forEach((error) => console.error(error));
             return false;
@@ -107,7 +107,7 @@ export const useReactModals = (options) => {
                 callback,
                 formDefaultData,
                 style,
-                theme,
+                theme = 'light',
                 buttonText,        //tidy up this section
                 type
             } = modalProperties;
@@ -124,7 +124,7 @@ export const useReactModals = (options) => {
                 buttonText,
                 type
             };
-            const errors = usevalidation? validateModal(modalProps, schemas[type]) : [];
+            const errors = useValidation? validateModal(modalProps, schemas[type]) : [];
             if (errors.length > 0) {
                 errors.forEach((error) => console.error(error));
                 return false;
@@ -168,7 +168,6 @@ export const useReactModals = (options) => {
         createStoredModal,
         showStoredModal,
         showModal,
-        getModalElement,
         // BootstrapFormModal,
     };
 };
