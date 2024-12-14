@@ -2,10 +2,12 @@
   "name": "react-modals",
   "version": "1.0.0",
   "description": "Easy to use popup modals, based on Bootstrap modal, for use in React.",
-  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified, this is on TODO list\" && exit 1"
+  },
+  "exports": {
+    ".": "./index.js"
   },
   "keywords": [
     "popup",

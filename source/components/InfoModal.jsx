@@ -1,6 +1,6 @@
 import '../lib/bootstrap-5.3.3/css/scoped-bootstrap.css';
 
-const InfoModal = ({ modalHeader, bodyText, modalId, style, buttonText }) => {
+export const InfoModal = ({ modalHeader, bodyText, modalId, style, buttonText }) => {
 
     return (
         <>
@@ -26,4 +26,3 @@ const InfoModal = ({ modalHeader, bodyText, modalId, style, buttonText }) => {
     )
 };
 
-export default InfoModal;

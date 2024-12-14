@@ -3,14 +3,15 @@
 Easy to use popup modals for react, based on Bootstrap Modal. 
 
 This project started when I was making a reusable form modal for my own website, and suddenly it was it's own project. The form modal is built on react-hook-form and features form validation with Yup. All modals use bootstraps css and js, but the css is scoped so it should not interfere with a project that does not use it. Currently implemented modals are Form, Confirm and Info modals.
-Modals are shown with code, no component is needed to be placed. See further below for a complete documentation for each modal.
+Modals are called with code only, no component needed. See further below for a complete documentation for each modal.
 
 
 
 ## Installation
 
 ```bash
-  npm install react-modals
+  -npm install react-modals-
+  //not yet published to npm, todo soon
 ```
     
 ## Example usage
@@ -80,8 +81,8 @@ function App() {
 
 #### Return values
 
-| Value || Description                |
-| :-------- | :------- | :------------------------- |
+| Value | Description                
+| :-------- | :------- | 
 | `showModal` | Shows a modal based on the type passed in the modalProperties.  |
 | `createStoredModal` | Creates a stored modal that can be used in different components/pages.  |
 | `showStoredModal` | Used to show a stored modal based on the id passed.  |
@@ -104,6 +105,6 @@ Below all types and their properties.
 | `theme`      | `string` | **Optional.** 'light' or 'dark'. Defaults to light."|
 | `buttonText`      | `object` | **Required.** { closeButton: 'text for close button', actionButton: 'text for submit button' }|
 | `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
-| `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. See below for usage|
+| `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. See below for reference on "fields". Note that for a stored modal, if you need to pass in default data dynamically, this is done in the "showStoredModal" call. See reference on stored modal for more information.|
 
 ...To be expanded...
