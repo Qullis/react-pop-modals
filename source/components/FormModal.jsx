@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {useEffect} from "react";
 
-export const FormModal = ({ modalHeader, modalId, fields, schema, callback, data, style, buttonText }) => {
+export const FormModal = ({ modalHeader, modalId, fields, schema, callback, callbackArgs, data, style, buttonText }) => {
     //html needs date in yyyy-mm-dd format when setting default value
     const formatDate = (date) => {
         try {
@@ -86,7 +86,7 @@ export const FormModal = ({ modalHeader, modalId, fields, schema, callback, data
 
     const onSubmit = async (formData) => {
         try {
-            await callback(formData);
+            await callback(formData, callbackArgs);
             const modal = Modal.getInstance(`#${modalId}`);
             modal.hide();
         } catch (error) {

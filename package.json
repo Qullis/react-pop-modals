@@ -1,6 +1,6 @@
 {
   "name": "react-modals",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "Easy to use popup modals, based on Bootstrap modal, for use in React.",
   "type": "module",
   "scripts": {

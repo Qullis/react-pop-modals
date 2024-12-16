@@ -13,10 +13,12 @@ import getModalStyle from './utils/styles';
 //modal schemas
 import formSchema from './schemas/formSchema';
 import confirmSchema from './schemas/confirmSchema';
+import infoSchema from './schemas/infoSchema';
 
 const schemas = {
     form: formSchema,
-    confirm: confirmSchema
+    confirm: confirmSchema,
+    info: infoSchema
 };
 /**
      * useReactModals.

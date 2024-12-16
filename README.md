@@ -87,7 +87,7 @@ function App() {
 | `createStoredModal` | Creates a stored modal that can be used in different components/pages.  |
 | `showStoredModal` | Used to show a stored modal based on the id passed.  |
 
-### Modal types and options.
+### showModal
 The showModal and createStoredModal functions both takes a modalProperties object. To choose a modal type you need to specify the type by setting type in modalProperties.
 Below all types and their properties.
 
@@ -107,4 +107,47 @@ Below all types and their properties.
 | `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
 | `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. See below for reference on "fields". Note that for a stored modal, if you need to pass in default data dynamically, this is done in the "showStoredModal" call. See reference on stored modal for more information.|
 
-...To be expanded...
+#### Type: confirm
+
+#### modalProperties
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `type`      | `string` | **Required.** Can be "form", "confirm" or "info"|
+| `modalHeader`      | `string` | **Optional.** The header of the modal, can be left out.|
+| `callback`      | `function` | **Required.** The function that is run when the confirm button is clicked.|
+| `bodyText`      | `string` | **Optional.** The text displayed in the body of the modal. Optional, but should propably be provided.|
+| `theme`      | `string` | **Optional.** 'light' or 'dark'. Defaults to light."|
+| `buttonText`      | `object` | **Required.** { closeButton: 'text for close button', actionButton: 'text for confirm button' }|
+| `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
+
+#### Type: info
+
+#### modalProperties
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `type`      | `string` | **Required.** Can be "form", "confirm" or "info"|
+| `modalHeader`      | `string` | **Optional.** The header of the modal, can be left out.|
+| `bodyText`      | `string` | **Optional.** The text displayed in the body of the modal. Optional, but should propably be provided.|
+| `theme`      | `string` | **Optional.** 'light' or 'dark'. Defaults to light."|
+| `buttonText`      | `object` | **Required.** { closeButton: 'text for close button', actionButton: 'text for confirm button' }|
+| `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
+
+### createStoredModal
+The showModal and createStoredModal functions both takes a modalProperties object. For stored modals you also need to provide a unique 
+id. This id will be used to call the modal later. If the id is not unique when creating the modal, the create call will be ignored.
+
+#### modalProperties
+As stated above, all properties are the same as showModal, except for the id.
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required.** Must be unique.|
+
+////still to be expanded
+
+
+
+
+
