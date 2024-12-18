@@ -145,9 +145,32 @@ As stated above, all properties are the same as showModal, except for the id.
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required.** Must be unique.|
 
-////still to be expanded
+### showStoredModal
+Used to display a modal that has previously been stored.
+
+#### parameters
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required.** The id of the modal you want to display.|
+| `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. If the data has changed, or is fetched dynamically after the modal has been created, you can use the formDefaultData in showStoredModal.|
+| `callbackArgs` | `any` | **Optional.** If you need to pass some dynamic data or parameters to the callback function after the modal has been stored before it is shown, you can do it here. callbackArgs will be passed to the callback function. |
 
 
 
+### ------------
+### Fields
+
+The fields parameter describes the form in the modal. 
+
+```javascript	
+const postFields = [
+        { name: 'postTitle', label: 'Post title', type: 'text' },
+        { name: 'email', label: 'Email', type: 'email' },
+        { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'text' },
+        { name: 'descriptionOfBirds', label: 'Short description of birds', type: 'textarea' }
+    ];
+```
+In the example above, we define 4 html input fields. The name needs to be unique, as it serves as the id. The label is the descriptive text that is displayed. Type is the type of the html input field. Also supports textarea.
 
 
