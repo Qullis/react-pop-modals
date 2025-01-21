@@ -88,8 +88,8 @@ function App() {
 | `showStoredModal` | Used to show a stored modal based on the id passed.  |
 
 ### showModal
-The showModal and createStoredModal functions both takes a modalProperties object. To choose a modal type you need to specify the type by setting type in modalProperties.
-Below all types and their properties.
+The showModal and createStoredModal functions both takes a modalProperties object. To choose a modal type you set the "type" in modalProperties.
+Below are all types and their properties.
 
 #### Type: form
 
@@ -158,7 +158,7 @@ Used to display a modal that has previously been stored.
 
 
 
-### ------------
+### ------------------------------------------
 ### Fields
 
 The fields parameter describes the form in the modal. 
