@@ -14,6 +14,11 @@ const getModalStyle = (type, theme, customStyle) => {
                 closeButton: 'btn btn-secondary',
                 actionButton: 'btn btn-danger',
                 xButton: 'bg-light'
+            },
+            info: {
+                modal: 'bg-dark text-white',
+                closeButton: 'btn btn-secondary',
+                xButton: 'bg-light'
             }
         },
         light: {
@@ -28,6 +33,11 @@ const getModalStyle = (type, theme, customStyle) => {
                 modal: '',
                 closeButton: 'btn btn-secondary',
                 actionButton: 'btn btn-danger',
+                xButton: ''
+            },
+            info: {
+                modal: '',
+                closeButton: 'btn btn-secondary',
                 xButton: ''
             }
         }

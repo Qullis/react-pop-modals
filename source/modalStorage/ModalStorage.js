@@ -21,7 +21,7 @@ class ModalStorage {
         this.allModals = this.allModals.filter(m => m!== modal);
     }
     getModalById(modalId) {
-        return this.allModals.find(m => m.id === modalId);
+        return this.allModals.find(m => m.modalId === modalId);
     }
 };
 

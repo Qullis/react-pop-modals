@@ -54,18 +54,18 @@ export const useReactModals = (options) => {
             buttonText,
             type
         };
-        if (modalId) {
+        if (!modalId) {
             throw new Error('Modal ID is required'); //all modals need id and type, validate here instead of using schema
         };
-        if (!type) {
-            throw new Error('Modal type is required');
+        if (!type || !schemas[type]) {
+            throw new Error('Modal type is required and must be one of "form", "confirm" or "info"');
         };
-        const errors = useValidation ? validateModal(modalProperties, schema[type]) : [];
+        const errors = useValidation ? validateModal(modalProperties, schemas[type]) : [];
         if (errors.length > 0) {
             errors.forEach((error) => console.error(error));
             return false;
         };
-        if (!modalStorage.getElementById(modalId)) {
+        if (!modalStorage.getModalById(modalId)) {
             modalStorage.addModal(modalProps);
             return true;
         }
@@ -75,6 +75,7 @@ export const useReactModals = (options) => {
     const showStoredModal = (modalId, options) => {
         const { formDefaultData, callbackArguments } = options ?? {};
         let modalProps = modalStorage.getModalById(modalId);
+        if(!modalProps) throw new Error('Modal with id ' + modalId + ' does not exist');
         modalProps.data = formDefaultData;
         modalProps.callbackArgs = callbackArguments;
         modalProps.isStored = true;
@@ -83,7 +84,7 @@ export const useReactModals = (options) => {
 
     const showModal = (modalProperties) => {
         let modalProps;
-        if (!modalProps.isStored) { //if using stored modal, all props are already set and validated in modalProperties
+        if (!modalProperties.isStored) { //if using stored modal, all props are already set and validated in modalProperties
             const {
                 modalId = `modal-${Math.floor(Date.now() / 100)}`,
                 modalHeader,

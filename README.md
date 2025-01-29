@@ -119,7 +119,7 @@ Below are all types and their properties.
 | `bodyText`      | `string` | **Optional.** The text displayed in the body of the modal. Optional, but should propably be provided.|
 | `theme`      | `string` | **Optional.** 'light' or 'dark'. Defaults to light."|
 | `buttonText`      | `object` | **Required.** { closeButton: 'text for close button', actionButton: 'text for confirm button' }|
-| `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
+| `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below|
 
 #### Type: info
 
@@ -131,7 +131,7 @@ Below are all types and their properties.
 | `modalHeader`      | `string` | **Optional.** The header of the modal, can be left out.|
 | `bodyText`      | `string` | **Optional.** The text displayed in the body of the modal. Optional, but should propably be provided.|
 | `theme`      | `string` | **Optional.** 'light' or 'dark'. Defaults to light."|
-| `buttonText`      | `object` | **Required.** { closeButton: 'text for close button', actionButton: 'text for confirm button' }|
+| `buttonText`      | `object` | **Required.** { closeButton: 'text for close button'}|
 | `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
 
 ### createStoredModal
@@ -143,7 +143,7 @@ As stated above, all properties are the same as showModal, except for the id.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required.** Must be unique.|
+| `modalId`      | `string` | **Required.** Must be unique.|
 
 ### showStoredModal
 Used to display a modal that has previously been stored.
