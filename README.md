@@ -8,9 +8,11 @@ If there is any interest in this package, and a need in the future, there might 
 
 Also please report any bugs/issues at https://github.com/Qullis/react-pop-modals
 
-#### Modal types:
+### Modal types:
   -Form, uses react-hook-form and features optional form validation with Yup (https://www.npmjs.com/package/yup).
+
   -Info, simple modal for displaying information
+
   -Confirm, modal for getting confirmation from the user
 
 More types might be added in the future.
