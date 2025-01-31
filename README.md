@@ -2,12 +2,16 @@
 # React-Pop-Modals
 Easy to use popup modals for react, based on Bootstrap Modal. 
 
-This project started when I was making a reusable form modal for a project, and suddenly it was it's own whole project. The form modal is built on react-hook-form and features form validation with Yup. All modals use Bootstraps css and js, but the css is scoped so it should not interfere with a project that does not use it. Modals are easily called with JavaScript, you dont need to place any components.
+All modals use Bootstraps CSS and Js, but the CSS is scoped so it should not interfere with a project that does not use it. Modals are easily called with JavaScript, you dont need to place any components. 
+
+If there is any interest in this package, and a need in the future, there might be a separate package that is not shipped with standalone Bootstrap for use if you already have it. For now, if size is important, you can go into the package and manually replace the scoped-bootstrap.css file with an empty one. (react-pop-modals/source/lib/bootstrap-5.3.3/css/scoped-bootstrap.css)
+
+Also please report any bugs/issues at https://github.com/Qullis/react-pop-modals
 
 #### Modal types:
-  -Form
-  -Info
-  -Confirm
+  -Form, uses react-hook-form and features optional form validation with Yup (https://www.npmjs.com/package/yup).
+  -Info, simple modal for displaying information
+  -Confirm, modal for getting confirmation from the user
 
 More types might be added in the future.
 
@@ -21,57 +25,60 @@ More types might be added in the future.
 ## Example usage
 
 ```javascript
-import useReactModals from "react-modals"
+import {useReactPopModals} from "react-pop-modals"
 import { myYupSchema } from "./myOptionalYupSchema";
 
 const postFields = [
-        { name: 'postTitle', label: 'Post title', type: 'text' },
-        { name: 'email', label: 'Email', type: 'email' },
-        { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'text' },
-        { name: 'descriptionOfBirds', label: 'Short description of birds', type: 'textarea' }
-    ];
+    { name: 'postTitle', label: 'Post title', type: 'text' },
+    { name: 'email', label: 'Email', type: 'email' },
+    { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'text' },
+    { name: 'descriptionOfBirds', label: 'Short description of birds', type: 'textarea' }
+];
 
-function App() {
-  const { showModal } = useReactModals();
+const App = () => {
+    const { showModal } = useReactPopModals();
 
-  const submitFunction = async (formData) => {
+    const submitFunction = async (formData) => {
         //do something with the data
+        console.log(formData);
     };
 
-  const handleClick = () => {
-    showModal({
+    const handleClick = () => {
+        showModal({
             type: 'form',
             modalHeader: 'Add new bird sighting',
             fields: postFields,
-            schema: myYupSchema,
+            schema: myYupSchema, // optional Yup schema for validation
             callback: submitFunction,
-            theme: 'light',
+            theme: 'light', 
             buttonText: {
                 actionButton: 'Submit',
                 closeButton: 'Cancel'
             },
         });
-  };
+    };
 
-  return (
-    <>
-      <h1>Bird sightings log</h1>
-      <hr />
-      <button onClick={handleClick} >Add new</button>
-    <>
-  )
-}
+    return (
+        <>
+            <h1>Bird sightings log</h1>
+            <hr />
+            <button onClick={handleClick} >Add new</button>
+        </>
+    );
+};
+
+export default App;
 ```
 
 
 ## Reference
 
 
-## useReactModals importing and setup
+## useReactPopModals importing and setup
 
 ```javascript
-  import {useReactModals} from "react-modals"
-  const { showModal, createStoredModal, showStoredModal } = useReactModals(options);
+  import {useReactPopModals} from "react-modals"
+  const { showModal, createStoredModal, showStoredModal } = useReactPopModals(options);
 ```
 
 | Parameter | Type     | Description                |

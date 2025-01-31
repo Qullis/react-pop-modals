@@ -1,3 +1,7 @@
 import { useReactModals } from "./source/reactModals";
 
-export { useReactModals }
+const useReactPopModals = useReactModals;
+
+export { useReactPopModals }
+
+export default useReactPopModals

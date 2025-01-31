@@ -27,7 +27,7 @@ const schemas = {
      * 
      */
 export const useReactModals = (options) => {
-    const { useValidation = true } = options || {};
+    const { useValidation = false } = options || {};
 
     const createStoredModal = (modalProperties) => {
         const {
