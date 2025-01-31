@@ -62,11 +62,11 @@ function App() {
 
 ## Reference
 
-### useReactModals
+### useReactModals-----------------------------
 
 ```javascript
   import {useReactModals} from "react-modals"
-  const { showModal } = useReactModals(options);
+  const { showModal, createStoredModal, showStoredModal } = useReactModals(options);
 ```
 
 | Parameter | Type     | Description                |
@@ -77,7 +77,7 @@ function App() {
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `useValidation`      | `boolean` | Validates the modalProperties passed to a modal, useful in developement but should be set to false in production, as to not affect performance. Defaults to true.|
+| `useValidation`| `object` | `boolean` | Validates the modalProperties passed to a modal, useful in developement but should be set to false in production, as to not affect performance. Defaults to true.|
 
 #### Return values
 
@@ -87,7 +87,7 @@ function App() {
 | `createStoredModal` | Creates a stored modal that can be used in different components/pages.  |
 | `showStoredModal` | Used to show a stored modal based on the id passed.  |
 
-### showModal
+### showModal---------------------------------------------------------------------------------------------------------------
 The showModal and createStoredModal functions both takes a modalProperties object. To choose a modal type you set the "type" in modalProperties.
 Below are all types and their properties.
 
@@ -134,7 +134,9 @@ Below are all types and their properties.
 | `buttonText`      | `object` | **Required.** { closeButton: 'text for close button'}|
 | `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
 
-### createStoredModal
+
+
+### createStoredModal----------------------------------------------------------------------------------------------------------
 The showModal and createStoredModal functions both takes a modalProperties object. For stored modals you also need to provide a unique 
 id. This id will be used to call the modal later. If the id is not unique when creating the modal, the create call will be ignored.
 
@@ -145,7 +147,9 @@ As stated above, all properties are the same as showModal, except for the id.
 | :-------- | :------- | :-------------------------------- |
 | `modalId`      | `string` | **Required.** Must be unique.|
 
-### showStoredModal
+
+
+### showStoredModal----------------------------------------------------------------------------------------------------------
 Used to display a modal that has previously been stored.
 
 #### parameters
@@ -153,13 +157,19 @@ Used to display a modal that has previously been stored.
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required.** The id of the modal you want to display.|
+| `options` | `object` | **Optional**. See below |
+
+#### options
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
 | `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. If the data has changed, or is fetched dynamically after the modal has been created, you can use the formDefaultData in showStoredModal.|
-| `callbackArgs` | `any` | **Optional.** If you need to pass some dynamic data or parameters to the callback function after the modal has been stored before it is shown, you can do it here. callbackArgs will be passed to the callback function. |
+| `callbackArgs` | `any` | **Optional.** If you need to pass some new data or parameters to the callback function after the modal has been stored but before it is shown, you can do it here. callbackArgs will be passed to your callback function. |
 
 
 
-### ------------------------------------------
-### Fields
+### Fields --------------------------------------------------------------------------------------------------------------------
+
 
 The fields parameter describes the form in the modal. 
 
@@ -174,3 +184,23 @@ const postFields = [
 In the example above, we define 4 html input fields. The name needs to be unique, as it serves as the id. The label is the descriptive text that is displayed. Type is the type of the html input field. Also supports textarea.
 
 
+### Custom styling -------------------------------------------------------------------------------------------------------------
+
+As of right now, you can apply some custom styling to a modal if you need. You do this by setting the style parameter when showing or creating a modal. Below you can see the default styling classes that you can override. Do note that not all of the styling is available for customization as that could break the modal.
+
+```javascript
+{
+  modal: 'bg-dark text-white',
+  closeButton: 'btn btn-light',
+  actionButton: 'btn btn-light',
+  xButton: 'bg-light'
+}
+```
+These are the same for all modal, except for info modals that lack an "action" button. Setting the "modal" class will affect the whole modal, "closeButton" and "actionButton" will affect the respective buttons, and "xbutton" will affect the close button in the top right corner of the modal. You can either use Bootstrap classes or your own custom styles. If you for example want to set the actionButton to a red button with bootstrap, you would do:
+
+```javascript
+{
+  actionButton: 'btn btn-danger'
+}
+``` 
+More styling might be made available for customization in the future, such as separate styling for the modal header.

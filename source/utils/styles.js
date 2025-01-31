@@ -12,7 +12,7 @@ const getModalStyle = (type, theme, customStyle) => {
             confirm: {
                 modal: 'bg-dark text-white',
                 closeButton: 'btn btn-secondary',
-                actionButton: 'btn btn-danger',
+                actionButton: 'btn btn-primary',
                 xButton: 'bg-light'
             },
             info: {
@@ -32,7 +32,7 @@ const getModalStyle = (type, theme, customStyle) => {
             confirm: {
                 modal: '',
                 closeButton: 'btn btn-secondary',
-                actionButton: 'btn btn-danger',
+                actionButton: 'btn btn-primary',
                 xButton: ''
             },
             info: {
