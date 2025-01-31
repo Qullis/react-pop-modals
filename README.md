@@ -62,7 +62,7 @@ function App() {
 
 ## Reference
 
-### useReactModals-----------------------------
+### useReactModals
 
 ```javascript
   import {useReactModals} from "react-modals"
@@ -87,7 +87,7 @@ function App() {
 | `createStoredModal` | Creates a stored modal that can be used in different components/pages.  |
 | `showStoredModal` | Used to show a stored modal based on the id passed.  |
 
-### showModal---------------------------------------------------------------------------------------------------------------
+### showModal
 The showModal and createStoredModal functions both takes a modalProperties object. To choose a modal type you set the "type" in modalProperties.
 Below are all types and their properties.
 
@@ -136,7 +136,7 @@ Below are all types and their properties.
 
 
 
-### createStoredModal----------------------------------------------------------------------------------------------------------
+### createStoredModal
 The showModal and createStoredModal functions both takes a modalProperties object. For stored modals you also need to provide a unique 
 id. This id will be used to call the modal later. If the id is not unique when creating the modal, the create call will be ignored.
 
@@ -149,7 +149,7 @@ As stated above, all properties are the same as showModal, except for the id.
 
 
 
-### showStoredModal----------------------------------------------------------------------------------------------------------
+### showStoredModal
 Used to display a modal that has previously been stored.
 
 #### parameters
@@ -168,7 +168,7 @@ Used to display a modal that has previously been stored.
 
 
 
-### Fields --------------------------------------------------------------------------------------------------------------------
+### Fields 
 
 
 The fields parameter describes the form in the modal. 
@@ -184,7 +184,7 @@ const postFields = [
 In the example above, we define 4 html input fields. The name needs to be unique, as it serves as the id. The label is the descriptive text that is displayed. Type is the type of the html input field. Also supports textarea.
 
 
-### Custom styling -------------------------------------------------------------------------------------------------------------
+### Custom styling 
 
 As of right now, you can apply some custom styling to a modal if you need. You do this by setting the style parameter when showing or creating a modal. Below you can see the default styling classes that you can override. Do note that not all of the styling is available for customization as that could break the modal.
 
