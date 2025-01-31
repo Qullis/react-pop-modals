@@ -2,10 +2,14 @@
 # React-Pop-Modals
 Easy to use popup modals for react, based on Bootstrap Modal. 
 
-This project started when I was making a reusable form modal for my own website, and suddenly it was it's own project. The form modal is built on react-hook-form and features form validation with Yup. All modals use bootstraps css and js, but the css is scoped so it should not interfere with a project that does not use it. Currently implemented modals are Form, Confirm and Info modals.
-Modals are called with code only, no component needed. See further below for a complete documentation for each modal.
+This project started when I was making a reusable form modal for a project, and suddenly it was it's own whole project. The form modal is built on react-hook-form and features form validation with Yup. All modals use Bootstraps css and js, but the css is scoped so it should not interfere with a project that does not use it. Modals are easily called with JavaScript, you dont need to place any components.
 
+#### Modal types:
+  -Form
+  -Info
+  -Confirm
 
+More types might be added in the future.
 
 ## Installation
 
