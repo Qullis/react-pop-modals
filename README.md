@@ -22,8 +22,7 @@ More types might be added in the future.
 ## Installation
 
 ```bash
-  -npm install react-modals-
-  //not yet published to npm, todo soon
+  npm install react-pop-modals
 ```
     
 ## Example usage
