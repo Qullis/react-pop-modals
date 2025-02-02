@@ -49,7 +49,7 @@ export const FormModal = ({ modalHeader, modalId, fields, schema, callback, call
     });
 
 
-    const inputFields = fields.map((field) => {
+    const inputFields = fields.map((field, index) => {
         try {
             if (field.name === "id" && data) {
                 return (
@@ -58,9 +58,9 @@ export const FormModal = ({ modalHeader, modalId, fields, schema, callback, call
                     </div>
                 )
             };
-            if ((field.type === "textarea" || field.type === "textArea") && data) {
+            if (field.type === "textarea" || field.type === "textArea") {
                 return (
-                    <div key={field.name}>
+                    <div key={field.name} className='mb-2'>
                         <div className='form-group'>
                             <label htmlFor={field.name}>{field.label}</ label>
                             <textarea className='form-control' {...register(field.name)} />
@@ -68,9 +68,63 @@ export const FormModal = ({ modalHeader, modalId, fields, schema, callback, call
                         </div>
                     </div>
                 )
+            };
+            if (field.type === "select") {
+                const selectOptions = field.options.map((option, index) => {
+                    return <option key={field.name + '-' + index} value={option.value}>{option.label}</option>
+                })
+                return (
+                    <div key={field.name} className='mb-2'>
+                        <div className='form-group'>
+                            <label htmlFor={field.name}>{field.label}</ label>
+                            <select className='form-select' {...register(field.name)}>
+                                {selectOptions}
+                            </select>
+                            {errors?.[field.name] && <label className="text-danger">{errors[field.name].message}</label>}
+                        </div>
+                    </div>
+                );
+            };
+            if (field.type === "checkbox" || field.type === "radio") {
+                return (
+                    <div key={field.name + '-' + index} className='mb-2 pt-1 mt-2'>
+                        {field.topLabel && <label htmlFor={field.name + '-' + index} className='mb-2 text-decoration-underline'>{field.topLabel}</ label>}
+                        <div className='form-check' id={field.name + '-' + index}>
+                            <input className='form-check-input' type={field.type} {...register(field.name)} value={field.value} />
+                            <label className='form-check-label' htmlFor={field.name}>{field.label}</ label>
+                            {errors?.[field.name] && <label className="text-danger">{errors[field.name].message}</label>}
+                        </div>
+                    </div>
+                )
+            };
+            if (field.type === "checkboxInline" || field.type === "radioInline") {
+                const type = field.type === "checkboxInline" ? "checkbox" : "radio";
+                const checks = field.options.map((box, index) => {
+                    return (
+                        <div key={'boxGroup-' + index} className='form-check form-check-inline'>
+                            <input className='form-check-input' type={type} {...register(field.name)} value={box.value} />
+                            <label className='form-check-label' htmlFor={field.name}>{box.label}</ label>
+                            {errors?.[field.name] && <label className="text-danger">{errors[field.name].message}</label>}
+                        </div>
+                    )
+                })
+                return (
+                    <div key={field.name + '-' + index} className='mb-2 pt-1 mt-2'>
+                        {field.groupLabel && <label className='mb-2 text-decoration-underline d-block'>{field.groupLabel}</ label>}
+                        {checks}
+                    </div>
+                )
+            };
+            if (field.type === 'separator') {
+                return (
+                    <div key={'separator-' + index} className='mb-2'>
+                        <hr className='w-100' />
+                    </div>
+                )
             }
+            
             return (
-                <div key={field.name}>
+                <div key={field.name} className='mb-2'>
                     <div className="form-group">
                         <label htmlFor={field.name}>{field.label}</ label>
                         <input className='form-control' type={field.type} {...register(field.name)} />

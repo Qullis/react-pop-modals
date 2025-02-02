@@ -8,6 +8,8 @@ If there is any interest in this package, and a need in the future, there might 
 
 Also please report any bugs/issues at https://github.com/Qullis/react-pop-modals
 
+More examples will be added soon.
+
 ### Modal types:
   -Form, uses react-hook-form and features optional form validation with Yup (https://www.npmjs.com/package/yup).
 
@@ -33,7 +35,7 @@ import { myYupSchema } from "./myOptionalYupSchema";
 const postFields = [
     { name: 'postTitle', label: 'Post title', type: 'text' },
     { name: 'email', label: 'Email', type: 'email' },
-    { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'text' },
+    { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'number' },
     { name: 'descriptionOfBirds', label: 'Short description of birds', type: 'textarea' }
 ];
 
@@ -186,17 +188,17 @@ Used to display a modal that has previously been stored.
 ## Fields 
 
 
-The fields parameter describes the form in the modal. 
+The fields parameter describes the form in the modal.
 
 ```javascript	
 const postFields = [
         { name: 'postTitle', label: 'Post title', type: 'text' },
         { name: 'email', label: 'Email', type: 'email' },
-        { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'text' },
+        { name: 'numberOfbirds', label: 'Number of birds sighted', type: 'number' },
         { name: 'descriptionOfBirds', label: 'Short description of birds', type: 'textarea' }
     ];
 ```
-In the example above, we define 4 html input fields. The name needs to be unique, as it serves as the id. The label is the descriptive text that is displayed. Type is the type of the html input field. Also supports textarea.
+In the example above, we define 4 html input fields. The name needs to be unique, as it serves as the id. The label is the descriptive text that is displayed. Type is the type of the html input field. 
 
 #### Using formDefaultData
 
@@ -210,6 +212,57 @@ const formDefaultData = {
   descriptionOfBirds: 'Winged, small, feathered. Have beaks. 2 legs each.'
 }
 ```
+### Supported input types
+
+For normal <input> elements, the supported types are text, number, password, email, tel, date, url. Some other types might work as well, but styling might be off, for example color input. Support for more might be added later. For checkboxes and radio buttons see below.
+
+Other than those there are a few other input methods available.
+
+You can use textarea with the above model.
+
+For types select, radio and checkbox, you can use the below model.
+
+#### Select:
+
+```javascript
+{ name: 'category', label: 'Category', type: 'select', options: [
+  { value: '', label: 'Select category' }, 
+  { value: 'smallBird', label: 'Small bird' }, 
+  { value: 'mediumBird', label: 'Medium bird' }, 
+  { value: 'largeBird', label: 'Large bird' }
+  ] },
+```
+Settign the value to '' will make the select option the default displayed on initial rendering.
+
+#### Checks and radios:
+
+```javascript
+{ name: 'singleCheckBox', label: 'A checkbox', type: 'checkbox' },
+{ name: 'inputCheck', label: 'Checkbox test', type: 'checkbox', value: 'CheckHello' },
+{ name: 'inputCheck', label: 'Checkbox test 2', type: 'checkbox', value: 'CheckHello2' },
+{ name: 'inputRadio', label: 'Radio test 1', type: 'radio', value: 'r1', topLabel: 'Choose a radio option' },
+{ name: 'inputRadio', label: 'Radio test 2', type: 'radio', value: 'r2' },
+```
+The label will be shown to the right of the box, to have a label on top, for example above a group of radio buttons, use "topLabel". 
+If you leave out "value" on a checkbox, it will give true or false.
+
+If you need radio/checkboxes shown inline, you can use the following method:
+```javascript
+{ name: 'inputRadioInline', groupLabel: 'Radio inline group', type: 'radioInline', options: [
+  { label: 'Radio inline 1', value: '1' }, 
+  { label: 'Radio inline 2', value: '2' }
+  ] }
+```
+This will only work if they are part of the same input/share id. Currently there is no support for radio/checkboxes with different ids to be shown inline.
+
+#### Separator
+
+If you need a way to organize/separate/divide the form, for example radio/checkboxes, you can use the following:
+```javascript	
+{ type: 'separator'},
+```
+This basically inserts a <hr/> element into the form at the desired position.
+
 
 ## Custom styling 
 

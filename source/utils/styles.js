@@ -5,7 +5,7 @@ const getModalStyle = (type, theme, customStyle) => {
             form: {
                 modal: 'bg-dark text-white',
                 closeButton: 'btn btn-light',
-                actionButton: 'btn btn-light',
+                actionButton: 'btn btn-primary',
                 xButton: 'bg-light'
     
             },
@@ -25,7 +25,7 @@ const getModalStyle = (type, theme, customStyle) => {
             form: {
                 modal: '',
                 closeButton: 'btn btn-secondary',
-                actionButton: 'btn btn-secondary',
+                actionButton: 'btn btn-primary',
                 xButton: ''
     
             },
