@@ -8,7 +8,7 @@ If there is any interest in this package, and a need in the future, there might 
 
 Also please report any bugs/issues at https://github.com/Qullis/react-pop-modals
 
-More examples will be added soon.
+More usage examples will be added soon.
 
 ### Modal types:
   -Form, uses react-hook-form and features optional form validation with Yup (https://www.npmjs.com/package/yup).
@@ -213,7 +213,7 @@ const formDefaultData = {
 ```
 ### Supported input types
 
-For normal <input> elements, the supported types are text, number, password, email, tel, date, url. Some other types might work as well, but styling might be off, for example color input. Support for more might be added later. For checkboxes and radio buttons see below.
+For normal input elements, the supported types are text, number, password, email, tel, date, url. Some other types might work as well, but styling might be off, for example color input. Support for more might be added later. For checkboxes and radio buttons see below.
 
 Other than those there are a few other input methods available.
 
@@ -260,7 +260,7 @@ If you need a way to organize/separate/divide the form, for example radio/checkb
 ```javascript	
 { type: 'separator'},
 ```
-This basically inserts a <hr/> element into the form at the desired position.
+This basically inserts a hr element into the form at the desired position.
 
 
 ## Custom styling 
