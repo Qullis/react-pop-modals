@@ -10,8 +10,10 @@ Also please report any bugs/issues at https://github.com/Qullis/react-pop-modals
 
 More usage examples will be added soon.
 
+![modal example](https://github.com/Qullis/react-pop-modals/blob/media/ModalForm.png?raw=true)
+
 ### Modal types:
-  -Form, uses react-hook-form and features optional form validation with Yup (https://www.npmjs.com/package/yup).
+  -Form, uses react-hook-form and features optional form validation with Yup https://www.npmjs.com/package/yup.
 
   -Info, simple modal for displaying information
 
