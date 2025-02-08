@@ -94,7 +94,7 @@ export default App;
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `useValidation`| `object` | `boolean` | Validates the modalProperties passed to a modal, useful in developement but should be set to false in production, as to not affect performance. Defaults to false.|
+| `useValidation`| `boolean` | Validates the modalProperties passed to a modal, useful in developement but should be set to false in production, as to not affect performance. Defaults to false.|
 
 #### Return values
 
