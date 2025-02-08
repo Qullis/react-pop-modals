@@ -79,7 +79,7 @@ export default App;
 ## Reference
 
 
-## useReactPopModals importing and setup
+## Importing and setup
 
 ```javascript
   import {useReactPopModals} from "react-modals"
@@ -122,8 +122,9 @@ Below are all types and their properties.
 | `callback`      | `function` | **Required.** The function that is run when the form is submitted. The formdata will be passed to this function."|
 | `theme`      | `string` | **Optional.** 'light' or 'dark'. Defaults to light."|
 | `buttonText`      | `object` | **Required.** { closeButton: 'text for close button', actionButton: 'text for submit button' }|
-| `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below"|
-| `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. See below for reference on "fields". Note that for a stored modal, if you need to pass in default data dynamically, this is done in the "showStoredModal" call. See reference on stored modal for more information.|
+| `style` | `object` | **Optional.** Object with string values. Used to override the styling See further below|
+| `formDefaultData` | `object` | **Optional.** The default data for the form input fields. The key names of the object should match the field names in the fields objects. See below for reference on "fields". Note that for a stored modal,  this is passed in the "showStoredModal" call. See reference on stored modal for more information.|
+| `hideIdField`      | `boolean` | **Optional.** When you have an input field with name "id" and pass in default data the field is hidden by default, if you want the field to be visible set this to true. Defaults to false. |
 
 #### Type: confirm
 
@@ -159,7 +160,7 @@ The showModal and createStoredModal functions both takes a modalProperties objec
 id. This id will be used to call the modal later. If the id is not unique when creating the modal, the create call will be ignored.
 
 #### modalProperties
-As stated above, all properties are the same as showModal, except for the id.
+All properties are the same as for showModal, with two exeptions. First, a stored modal requires a unique id to be provided in the modalProperties. Second, a stored modal does not take the "formDefaultData" property in the modalProperties - this is instead passed in the "showStoredModal" call. For more information see "showStoredModal" below.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |

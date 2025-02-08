@@ -37,6 +37,7 @@ export const useReactModals = (options) => {
             bodyText,
             schema,
             callback,
+            hideIdField = true,
             theme,
             style,
             buttonText,
@@ -48,6 +49,7 @@ export const useReactModals = (options) => {
             fields,
             bodyText,
             schema,
+            hideIdField,
             callback,
             theme,
             style,
@@ -93,6 +95,7 @@ export const useReactModals = (options) => {
                 bodyText,
                 callback,
                 formDefaultData,
+                hideIdField = true,
                 style,
                 theme = 'light',
                 buttonText,        //tidy up this section
@@ -107,6 +110,7 @@ export const useReactModals = (options) => {
                 theme,
                 callback,
                 data: formDefaultData ?? undefined,
+                hideIdField,
                 style,
                 buttonText,
                 type

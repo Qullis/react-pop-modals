@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {useEffect} from "react";
 
-export const FormModal = ({ modalHeader, modalId, fields, schema, callback, callbackArgs, data, style, buttonText }) => {
+export const FormModal = ({ modalHeader, modalId, fields, schema, callback, callbackArgs, data, hideIdField, style, buttonText }) => {
     //html needs date in yyyy-mm-dd format when setting default value
     const formatDate = (date) => {
         try {
@@ -51,7 +51,7 @@ export const FormModal = ({ modalHeader, modalId, fields, schema, callback, call
 
     const inputFields = fields.map((field, index) => {
         try {
-            if (field.name === "id" && data) {
+            if (field.name.toLowerCase() === "id" && data && hideIdField) {
                 return (
                     <div key={field.name}>
                         <input type='text' value={defaultValues.id} hidden readOnly />
